@@ -13,4 +13,3 @@ The aesthetic was inspired by deep-sea photography and bioluminescent organisms.
 
 Built with React (Vite) and GSAP with ScrollTrigger, every section is animated in a purposeful way. The Sunlight Zone uses staggered card reveals. The Twilight Zone features an interactive fact-toggle panel with bioluminescent dot overlays. The Midnight Zone implements GSAP's horizontal scroll-pinning for a creature gallery. The Abyss concludes with counter animations and a timeline reveal. A custom cursor, real-time depth meter, and floating bubble system run persistently throughout the experience. The site is fully responsive across desktop, tablet, and mobile devices.
 
-**Word Count: 237**
