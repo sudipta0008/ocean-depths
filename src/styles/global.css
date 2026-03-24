@@ -1,0 +1,128 @@
+/* =========================================
+   OCEAN DEPTHS — Global Styles
+   ========================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Ocean Color Palette */
+  --surface:       #0a1628;
+  --sunlight:      #00c8ff;
+  --twilight:      #0057a8;
+  --midnight:      #002147;
+  --abyss:         #000810;
+  --biolum:        #00ffe7;
+  --biolum-soft:   #00ffd580;
+  --coral:         #ff6b5b;
+  --sand:          #f0e6cc;
+  --foam:          #e8f4f8;
+  --text-primary:  #e8f4f8;
+  --text-muted:    #7db8d4;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Josefin Sans', sans-serif;
+
+  /* Spacing */
+  --section-pad: clamp(80px, 12vw, 160px);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--abyss);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 12px; height: 12px;
+  background: var(--biolum);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border: 1px solid var(--biolum-soft);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--abyss); }
+::-webkit-scrollbar-thumb { background: var(--twilight); border-radius: 2px; }
+
+/* Utility */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bubble particles (shared) */
+@keyframes bubbleRise {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.7; }
+  50%  { transform: translateY(-40vh) translateX(15px) scale(1.1); opacity: 0.5; }
+  100% { transform: translateY(-90vh) translateX(-10px) scale(0.8); opacity: 0; }
+}
+
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 20px var(--biolum), 0 0 40px var(--biolum-soft); }
+  50%       { text-shadow: 0 0 40px var(--biolum), 0 0 80px var(--biolum-soft), 0 0 120px #00ffe740; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Responsive base */
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  .cursor, .cursor-follower { display: none; }
+}

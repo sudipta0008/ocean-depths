@@ -1,0 +1,172 @@
+.twilight {
+  position: relative;
+  background: linear-gradient(180deg, #00142b 0%, #000d1f 100%);
+  padding: var(--section-pad) 0;
+  min-height: 100vh;
+}
+
+.twilight__orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.twilight__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.twilight__orb--1 {
+  width: 400px; height: 400px;
+  background: rgba(0, 87, 168, 0.15);
+  top: -100px; right: -50px;
+  animation: waveFloat 8s ease-in-out infinite;
+}
+
+.twilight__orb--2 {
+  width: 300px; height: 300px;
+  background: rgba(0, 255, 231, 0.07);
+  bottom: 10%; left: 10%;
+  animation: waveFloat 11s ease-in-out infinite reverse;
+}
+
+.twilight__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.twilight__header {
+  margin-bottom: 64px;
+}
+
+.twilight__interactive {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Fact buttons */
+.twilight__facts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.twilight__fact-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(0, 20, 43, 0.6);
+  border: 1px solid rgba(0, 87, 168, 0.2);
+  padding: 16px 20px;
+  border-radius: 6px;
+  cursor: none;
+  text-align: left;
+  transition: all 0.3s ease;
+  color: var(--text-muted);
+}
+
+.twilight__fact-btn:hover {
+  background: rgba(0, 87, 168, 0.15);
+  border-color: rgba(77, 184, 255, 0.35);
+  color: var(--foam);
+}
+
+.twilight__fact-btn--active {
+  background: rgba(0, 87, 168, 0.25);
+  border-color: rgba(77, 184, 255, 0.6);
+  color: var(--foam);
+  box-shadow: 0 0 20px rgba(0, 87, 168, 0.2);
+}
+
+.twilight__fact-icon {
+  font-size: 18px;
+  color: #4db8ff;
+  min-width: 24px;
+  text-align: center;
+}
+
+.twilight__fact-title {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Display panel */
+.twilight__fact-display {
+  position: relative;
+  background: rgba(0, 9, 26, 0.7);
+  border: 1px solid rgba(0, 87, 168, 0.2);
+  border-radius: 12px;
+  padding: 48px 44px;
+  min-height: 280px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.twilight__fact-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.twilight__fact-big-icon {
+  font-size: 48px;
+  color: #4db8ff;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.twilight__fact-name {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--foam);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.twilight__fact-body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 480px;
+  letter-spacing: 0.05em;
+}
+
+/* Bioluminescent dots */
+.twilight__biolum-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.biolum-dot {
+  position: absolute;
+  background: var(--biolum);
+  border-radius: 50%;
+  animation: glowPulse 3s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@media (max-width: 900px) {
+  .twilight__interactive {
+    grid-template-columns: 1fr;
+  }
+  .twilight__facts {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .twilight__container { padding: 0 20px; }
+}

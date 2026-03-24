@@ -1,0 +1,67 @@
+.depth-meter {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.depth-meter__track {
+  position: relative;
+  width: 2px;
+  height: 120px;
+  background: rgba(0, 200, 255, 0.15);
+  border-radius: 1px;
+  overflow: visible;
+}
+
+.depth-meter__fill {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: linear-gradient(to bottom, var(--sunlight), var(--biolum));
+  border-radius: 1px;
+  transition: height 0.2s ease;
+  min-height: 2px;
+}
+
+.depth-meter__bubble {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px; height: 8px;
+  background: var(--biolum);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--biolum), 0 0 20px var(--biolum-soft);
+  transition: top 0.2s ease;
+}
+
+.depth-meter__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.depth-meter__value {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 100;
+  color: var(--biolum);
+  letter-spacing: 0.1em;
+}
+
+.depth-meter__unit {
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 100;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+}
+
+@media (max-width: 768px) {
+  .depth-meter { right: 10px; }
+}
